@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cart from "./Cart";
+import Arrows from "./Arrows";
 
 export default function Slider() {
   const [heroes, setHeroes] = useState();
@@ -15,26 +16,20 @@ export default function Slider() {
       }
     })();
   }, []);
+  const handleClickNext = () => {
+    setCurrentIndex(currentIndex == heroes.length - 1 ? 0 : currentIndex+1);
+  };
+  const handleClickPrev = () => {
+    setCurrentIndex(currentIndex == 0 ? heroes.length - 1 : currentIndex-1);
+  };
   return (
     <div class="slide-container">
       <div class="wrapper">
         {heroes ? (
           <>
-            <div class="arrow-wrapper">
-              <div class="round">
-                <div id="cta">
-                  <span class="arrow prev"></span>
-                </div>
-              </div>
-            </div>
+            <Arrows handleClick={handleClickPrev} direction={'prev'}/>
             <Cart hero={heroes[currentIndex]} />
-            <div class="arrow-wrapper">
-              <div class="round">
-                <div id="cta">
-                  <span class="arrow next"></span>
-                </div>
-              </div>
-            </div>
+            <Arrows handleClick={handleClickNext} direction={'next'}/>
           </>
         ) : (
           <div className="loader"> Loading ... </div>

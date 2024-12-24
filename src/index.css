@@ -278,6 +278,6 @@ body {
 }
 
 .loader {
-    color: #ee5487;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 3rem;
 }
