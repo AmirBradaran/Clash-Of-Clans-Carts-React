@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Cart() {
+export default function Cart({ hero }) {
   return (
     <div class="clash-card barbarian">
       <div class="clash-card__image clash-card__image--barbarian">
